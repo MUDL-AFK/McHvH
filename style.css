@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(-45deg, #e0e0e0, #888, #000, #888, #e0e0e0);
+    background: linear-gradient(270deg, #e0e0e0, #888, #444, #888, #e0e0e0);
     background-size: 400% 400%;
-    animation: gradientFlow 24s ease-in-out infinite;
+    animation: gradientFlow 24s linear infinite;
     color: #fff;
     font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
@@ -13,11 +13,8 @@ body {
     0% {
         background-position: 0% 50%;
     }
-    50% {
-        background-position: 100% 50%;
-    }
     100% {
-        background-position: 0% 50%;
+        background-position: 100% 50%;
     }
 }
 
@@ -35,9 +32,9 @@ body {
 
 .topnav {
     width: 100%;
-    background: linear-gradient(-45deg, #e0e0e0, #888, #000, #888, #e0e0e0);
+    background: linear-gradient(270deg, #e0e0e0, #888, #444, #888, #e0e0e0);
     background-size: 400% 400%;
-    animation: gradientFlow 24s ease-in-out infinite;
+    animation: gradientFlow 24s linear infinite;
     padding: 16px 0 10px 0;
     display: flex;
     justify-content: center;
