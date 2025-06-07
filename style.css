@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 30%, #888 50%, #b0b0b0 70%, #cccccc 100%);
+    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 20%, #888 40%, #888 60%, #b0b0b0 80%, #cccccc 100%);
     background-size: 200% 200%;
     animation: gradientLine 7s ease-in-out infinite alternate;
     color: #fff;
@@ -32,7 +32,7 @@ body {
 
 .topnav {
     width: 100%;
-    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 30%, #888 50%, #b0b0b0 70%, #cccccc 100%);
+    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 20%, #888 40%, #888 60%, #b0b0b0 80%, #cccccc 100%);
     background-size: 200% 200%;
     animation: gradientLine 7s ease-in-out infinite alternate;
     padding: 16px 0 10px 0;
