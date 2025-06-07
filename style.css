@@ -3,7 +3,7 @@ body {
     padding: 0;
     background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
     background-size: 400% 400%;
-    animation: gradientFlow 6s ease-in-out infinite;
+    animation: gradientFlow 24s ease-in-out infinite;
     color: #fff;
     font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
@@ -25,7 +25,7 @@ body {
     width: 100%;
     background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
     background-size: 400% 400%;
-    animation: gradientFlow 6s ease-in-out infinite;
+    animation: gradientFlow 24s ease-in-out infinite;
     padding: 16px 0 10px 0;
     display: flex;
     justify-content: center;
