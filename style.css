@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #e0e0e0 0%, #b0b0b0 35%, #888 45%, #b0b0b0 55%, #e0e0e0 100%);
+    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 30%, #888 50%, #b0b0b0 70%, #cccccc 100%);
     background-size: 200% 200%;
-    animation: gradientLine 16s ease-in-out infinite alternate;
+    animation: gradientLine 7s ease-in-out infinite alternate;
     color: #fff;
     font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
@@ -32,9 +32,9 @@ body {
 
 .topnav {
     width: 100%;
-    background: linear-gradient(120deg, #e0e0e0 0%, #b0b0b0 35%, #888 45%, #b0b0b0 55%, #e0e0e0 100%);
+    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 30%, #888 50%, #b0b0b0 70%, #cccccc 100%);
     background-size: 200% 200%;
-    animation: gradientLine 16s ease-in-out infinite alternate;
+    animation: gradientLine 7s ease-in-out infinite alternate;
     padding: 16px 0 10px 0;
     display: flex;
     justify-content: center;
