@@ -128,17 +128,14 @@ body {
 
 .footer {
     position: fixed;
-    right: 0;
+    left: 0;
     bottom: 0;
-    background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
-    background-size: 400% 400%;
-    animation: gradientFlow 24s ease-in-out infinite;
+    background: none;
     color: #fff;
-    text-align: right;
-    padding: 8px 24px 8px 16px;
+    text-align: left;
+    padding: 8px 16px 8px 24px;
     font-size: 0.95em;
     font-weight: 500;
-    border-top-left-radius: 10px;
     z-index: 100;
     min-width: max-content;
 }
