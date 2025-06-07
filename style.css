@@ -1,10 +1,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(270deg, #e0e0e0, #888, #444, #888, #e0e0e0);
-    background-size: 400% 400%;
-    animation: gradientFlow 24s linear infinite;
-    color: #fff;
+    background: linear-gradient(120deg, #222 0%, #888 40%, #e0e0e0 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 16s linear infinite;
+    color: #111;
     font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
 }
@@ -32,9 +32,9 @@ body {
 
 .topnav {
     width: 100%;
-    background: linear-gradient(270deg, #e0e0e0, #888, #444, #888, #e0e0e0);
-    background-size: 400% 400%;
-    animation: gradientFlow 24s linear infinite;
+    background: linear-gradient(120deg, #222 0%, #888 40%, #e0e0e0 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 16s linear infinite;
     padding: 16px 0 10px 0;
     display: flex;
     justify-content: center;
@@ -53,7 +53,7 @@ body {
 }
 
 .topnav li {
-    color: #fff;
+    color: #111;
     font-size: 1em;
     display: flex;
     align-items: center;
@@ -67,12 +67,13 @@ body {
 .topnav li i {
     margin-right: 8px;
     font-size: 1em;
+    color: #111;
 }
 
 .topnav li.active, .topnav li:hover {
-    color: #fff;
+    color: #111;
     font-weight: 600;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #111;
 }
 
 .main-content {
@@ -141,7 +142,7 @@ body {
     left: 0;
     bottom: 0;
     background: none;
-    color: #fff;
+    color: #111;
     text-align: left;
     padding: 8px 16px 8px 24px;
     font-size: 0.95em;
