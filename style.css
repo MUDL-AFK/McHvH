@@ -125,3 +125,19 @@ body {
     color: #fff;
     text-decoration: underline;
 }
+
+.footer {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
+    background-size: 400% 400%;
+    animation: gradientFlow 24s ease-in-out infinite;
+    color: #fff;
+    text-align: center;
+    padding: 16px 0 12px 0;
+    font-size: 1.15em;
+    font-weight: 600;
+    z-index: 100;
+}
