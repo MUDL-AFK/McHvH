@@ -23,11 +23,15 @@ body {
 
 .topnav {
     width: 100%;
-    background: #000;
+    background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
+    background-size: 400% 400%;
+    animation: gradientFlow 12s ease-in-out infinite;
     padding: 16px 0 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .topnav ul {
