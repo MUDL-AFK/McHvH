@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
+    background: linear-gradient(-45deg, #e0e0e0, #888, #000, #888, #e0e0e0);
     background-size: 400% 400%;
     animation: gradientFlow 24s ease-in-out infinite;
     color: #fff;
@@ -26,7 +26,7 @@ body {
     width: auto;
     position: absolute;
     top: 50%;
-    right: 32px;
+    left: 32px;
     transform: translateY(-50%);
     display: block;
     z-index: 101;
@@ -34,7 +34,7 @@ body {
 
 .topnav {
     width: 100%;
-    background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
+    background: linear-gradient(-45deg, #e0e0e0, #888, #000, #888, #e0e0e0);
     background-size: 400% 400%;
     animation: gradientFlow 24s ease-in-out infinite;
     padding: 16px 0 10px 0;
