@@ -1,20 +1,20 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #222 0%, #888 40%, #e0e0e0 100%);
+    background: linear-gradient(120deg, #e0e0e0 0%, #b0b0b0 35%, #888 45%, #b0b0b0 55%, #e0e0e0 100%);
     background-size: 200% 200%;
-    animation: gradientFlow 6s linear infinite;
+    animation: gradientLine 16s ease-in-out infinite alternate;
     color: #fff;
     font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
 }
 
-@keyframes gradientFlow {
+@keyframes gradientLine {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
     }
     100% {
-        background-position: 100% 50%;
+        background-position: 100% 100%;
     }
 }
 
@@ -32,9 +32,9 @@ body {
 
 .topnav {
     width: 100%;
-    background: linear-gradient(120deg, #222 0%, #888 40%, #e0e0e0 100%);
+    background: linear-gradient(120deg, #e0e0e0 0%, #b0b0b0 35%, #888 45%, #b0b0b0 55%, #e0e0e0 100%);
     background-size: 200% 200%;
-    animation: gradientFlow 6s linear infinite;
+    animation: gradientLine 16s ease-in-out infinite alternate;
     padding: 16px 0 10px 0;
     display: flex;
     justify-content: center;
