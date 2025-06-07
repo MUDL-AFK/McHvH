@@ -21,6 +21,17 @@ body {
     }
 }
 
+.nav-logo {
+    height: 38px;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    display: block;
+    z-index: 101;
+}
+
 .topnav {
     width: 100%;
     background: linear-gradient(-45deg, #fff, #888, #000, #888, #fff);
@@ -32,6 +43,7 @@ body {
     align-items: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    position: relative;
 }
 
 .topnav ul {
