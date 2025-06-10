@@ -83,7 +83,7 @@ body {
 
 .topnav a:hover {
     color: #fff;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .main-content {
