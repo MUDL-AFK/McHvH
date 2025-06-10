@@ -76,6 +76,16 @@ body {
     border-bottom: 2px solid #fff;
 }
 
+.topnav a, .topnav a:visited, .topnav a:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
 .main-content {
     flex: 1;
     display: flex;
