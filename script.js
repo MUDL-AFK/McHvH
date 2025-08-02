@@ -66,7 +66,7 @@ const shopData = {
 let currentCategory = 'nametag';
 
 // DOM elements
-const categoryButtons = document.querySelectorAll('.category-btn');
+const categoryButtons = document.querySelectorAll('.top-category-btn');
 const categoryTitle = document.querySelector('.category-title');
 const productsContainer = document.getElementById('products-container');
 
@@ -224,22 +224,36 @@ function addProductCardEffects() {
     });
 }
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initShop();
-    addSmoothScrolling();
-    addProductCardEffects();
-    
-    // Add some sample notifications for demo
-    setTimeout(() => {
-        showNotification('Welcome to the McHvH Shop!', 'info');
-    }, 1000);
-});
-
 // Add keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         // Close any open modals or menus
         console.log('Escape pressed');
     }
+});
+
+
+
+// Handle URL hash for direct category navigation
+function handleUrlHash() {
+    const hash = window.location.hash.substring(1);
+    if (hash && (hash === 'nametag' || hash === 'effects')) {
+        // Small delay to ensure shop is initialized
+        setTimeout(() => {
+            switchCategory(hash);
+        }, 100);
+    }
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initShop();
+    addSmoothScrolling();
+    addProductCardEffects();
+    handleUrlHash();
+    
+    // Add some sample notifications for demo
+    setTimeout(() => {
+        showNotification('Welcome to the McHvH Shop!', 'info');
+    }, 1000);
 });
