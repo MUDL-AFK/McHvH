@@ -9,19 +9,53 @@
 </head>
 <body>
     <nav class="topnav">
-        <a href="#" class="logo-link"><img class="nav-logo" src="https://media.discordapp.net/attachments/1361207730676695140/1380729082047762462/image-removebg-preview_2.png?ex=6844efa9&is=68439e29&hm=8b84c08829e2013120fc577e58616ba8eadf24027b3473b1c728483123159db8&=&format=webp&quality=lossless&width=625&height=625" alt="Logo"></a>
+        <a href="index.html" class="logo-link"><img class="nav-logo" src="https://media.discordapp.net/attachments/1361207730676695140/1380729082047762462/image-removebg-preview_2.png?ex=6844efa9&is=68439e29&hm=8b84c08829e2013120fc577e58616ba8eadf24027b3473b1c728483123159db8&=&format=webp&quality=lossless&width=625&height=625" alt="Logo"></a>
         <ul>
-            <li><i class="fas fa-home"></i> Home</li>
-            <li class="active"><i class="fas fa-shopping-cart"></i> Shop</li>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li class="active"><a href="shop.html"><i class="fas fa-shopping-cart"></i> Shop</a></li>
             <li><i class="fas fa-pen"></i> Change Log</li>
             <li><i class="fas fa-book"></i> History</li>
         </ul>
     </nav>
-    <div class="main-content">
-        <h1>Welcome to the Shop!</h1>
+    
+    <div class="shop-container">
+        <!-- Sidebar Categories -->
+        <div class="sidebar">
+            <div class="category-header">
+                <span>CATEGORY</span>
+                <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+            </div>
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="nametag">
+                    <span>Nametag</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="category-btn" data-category="effects">
+                    <span>Effects</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-shop-content">
+            <div class="shop-header">
+                <div class="menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <h1 class="category-title">Nametag</h1>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded here based on selected category -->
+            </div>
+        </div>
     </div>
+
     <footer class="footer">
         Copyright © 2025 McHVH.net - All Rights Reserved.
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html> 
