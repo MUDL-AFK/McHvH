@@ -86,6 +86,144 @@ body {
     text-decoration: none;
 }
 
+/* Dropdown Menu Styles */
+.shop-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 20%, #888 40%, #888 60%, #b0b0b0 80%, #cccccc 100%);
+    background-size: 200% 200%;
+    animation: gradientLine 7s ease-in-out infinite alternate;
+    border-radius: 12px;
+    padding: 15px;
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+.shop-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-category {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.dropdown-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.category-label:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.category-label i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-category:hover .category-label i {
+    transform: translateX(3px);
+}
+
+.submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: linear-gradient(120deg, #cccccc 0%, #b0b0b0 20%, #888 40%, #888 60%, #b0b0b0 80%, #cccccc 100%);
+    background-size: 200% 200%;
+    animation: gradientLine 7s ease-in-out infinite alternate;
+    border-radius: 12px;
+    padding: 15px;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1001;
+}
+
+.dropdown-category:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.submenu-item {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.submenu-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.submenu-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Arrow indicator for dropdown */
+.shop-dropdown::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.shop-dropdown:hover::after {
+    opacity: 1;
+}
+
 .main-content {
     flex: 1;
     display: flex;
@@ -436,5 +574,37 @@ body {
     
     .products-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive dropdown */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        transform: none;
+        border-radius: 0;
+        min-width: auto;
+        margin: 0 20px;
+    }
+    
+    .shop-dropdown:hover .dropdown-menu {
+        transform: none;
+    }
+    
+    .submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        margin-top: 10px;
+        box-shadow: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .dropdown-category:hover .submenu {
+        transform: none;
     }
 }
