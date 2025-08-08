@@ -1,259 +1,202 @@
-// Shop data with products for each category
-const shopData = {
-    nametag: [
-        {
-            name: "Solid",
-            price: "$3.99",
-            description: "Have access to give your name some color.",
-            image: "🏷️",
-            icon: "fas fa-tag"
-        },
-        {
-            name: "Multi",
-            price: "$7.99",
-            description: "Have access to give your name some color.",
-            image: "🌈",
-            icon: "fas fa-palette"
-        },
-        {
-            name: "Glow",
-            price: "$5.99",
-            description: "Make your name glow with special effects.",
-            image: "✨",
-            icon: "fas fa-star"
-        },
-        {
-            name: "Rainbow",
-            price: "$9.99",
-            description: "Rainbow animated nametag for extra style.",
-            image: "🌈",
-            icon: "fas fa-rainbow"
-        }
-    ],
-    effects: [
-        {
-            name: "Fire Trail",
-            price: "$4.99",
-            description: "Leave a trail of fire behind you.",
-            image: "🔥",
-            icon: "fas fa-fire"
-        },
-        {
-            name: "Ice Trail",
-            price: "$4.99",
-            description: "Leave a trail of ice crystals.",
-            image: "❄️",
-            icon: "fas fa-snowflake"
-        },
-        {
-            name: "Lightning",
-            price: "$6.99",
-            description: "Lightning effects around your character.",
-            image: "⚡",
-            icon: "fas fa-bolt"
-        },
-        {
-            name: "Smoke",
-            price: "$3.99",
-            description: "Smoke particles follow your movement.",
-            image: "💨",
-            icon: "fas fa-smog"
-        }
-    ]
-};
-
-// Current active category
-let currentCategory = 'nametag';
-
-// DOM elements
-const categoryButtons = document.querySelectorAll('.top-category-btn');
-const categoryTitle = document.querySelector('.category-title');
-const productsContainer = document.getElementById('products-container');
-
-// Initialize the shop
-function initShop() {
-    // Add click event listeners to category buttons
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category');
-            switchCategory(category);
-        });
-    });
-
-    // Load initial category
-    loadProducts(currentCategory);
-}
-
-// Switch between categories
-function switchCategory(category) {
-    // Update active button
-    categoryButtons.forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`[data-category="${category}"]`).classList.add('active');
-
-    // Update category title
-    categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-
-    // Load products for the selected category
-    currentCategory = category;
-    loadProducts(category);
-}
-
-// Load and display products for a category
-function loadProducts(category) {
-    const products = shopData[category] || [];
-    
-    // Clear current products
-    productsContainer.innerHTML = '';
-
-    // Create product cards
-    products.forEach(product => {
-        const productCard = createProductCard(product);
-        productsContainer.appendChild(productCard);
-    });
-}
-
-// Create a product card element
-function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    
-    card.innerHTML = `
-        <div class="product-image">
-            <i class="${product.icon}"></i>
-        </div>
-        <div class="product-price">${product.price}</div>
-        <div class="product-name">${product.name}</div>
-        <div class="product-description">${product.description}</div>
-        <button class="buy-button" onclick="buyProduct('${product.name}', '${product.price}')">
-            Buy
-        </button>
-    `;
-
-    return card;
-}
-
-// Handle product purchase
-function buyProduct(productName, price) {
-    // Add purchase animation
-    const button = event.target;
-    const originalText = button.textContent;
-    
-    button.textContent = 'Purchasing...';
-    button.disabled = true;
-    
-    // Simulate purchase process
-    setTimeout(() => {
-        button.textContent = 'Purchased!';
-        button.style.background = 'linear-gradient(135deg, #00ff88 0%, #00cc6a 100%)';
-        
-        // Show success message
-        showNotification(`Successfully purchased ${productName} for ${price}!`, 'success');
-        
-        // Reset button after 2 seconds
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.disabled = false;
-            button.style.background = 'linear-gradient(135deg, #4b7fff 0%, #6c5ce7 100%)';
-        }, 2000);
-    }, 1500);
-}
-
-// Show notification
-function showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
-    
-    // Style the notification
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? 'linear-gradient(135deg, #00ff88 0%, #00cc6a 100%)' : 'linear-gradient(135deg, #4b7fff 0%, #6c5ce7 100%)'};
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        font-weight: 600;
-        z-index: 1000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
-}
-
-// Add smooth scrolling to sidebar
-function addSmoothScrolling() {
-    const sidebar = document.querySelector('.sidebar');
-    if (sidebar) {
-        sidebar.style.overflowY = 'auto';
-        sidebar.style.scrollbarWidth = 'thin';
-        sidebar.style.scrollbarColor = 'rgba(255, 255, 255, 0.3) transparent';
-    }
-}
-
-// Add hover effects to product cards
-function addProductCardEffects() {
-    document.addEventListener('mouseover', (e) => {
-        if (e.target.closest('.product-card')) {
-            const card = e.target.closest('.product-card');
-            card.style.transform = 'translateY(-5px) scale(1.02)';
-        }
-    });
-
-    document.addEventListener('mouseout', (e) => {
-        if (e.target.closest('.product-card')) {
-            const card = e.target.closest('.product-card');
-            card.style.transform = 'translateY(0) scale(1)';
-        }
-    });
-}
-
-// Add keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        // Close any open modals or menus
-        console.log('Escape pressed');
-    }
-});
-
-
-
-// Handle URL hash for direct category navigation
-function handleUrlHash() {
-    const hash = window.location.hash.substring(1);
-    if (hash && (hash === 'nametag' || hash === 'effects')) {
-        // Small delay to ensure shop is initialized
-        setTimeout(() => {
-            switchCategory(hash);
-        }, 100);
-    }
-}
-
-// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize clipboard functionality for site title
+    const siteTitle = document.querySelector('.site-title');
+    if (siteTitle) {
+        siteTitle.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText('mchvh.net');
+                siteTitle.classList.remove('copied'); // Remove first to ensure animation triggers
+                void siteTitle.offsetWidth; // Force reflow
+                siteTitle.classList.add('copied');
+                setTimeout(() => siteTitle.classList.remove('copied'), 2000);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        });
+    }
+
+    const shopData = {
+        nametag: [
+            {
+                name: 'Common',
+                price: '$0.99',
+                description: 'Basic nametag with standard features',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10L10 30v20l30 20 30-20V30L40 10zm0 5l25 15v15L40 60 15 45V30l25-15z" fill="#4CAF50"/></svg>'
+            },
+            {
+                name: 'Prime',
+                price: '$2.99',
+                description: 'Enhanced nametag with premium features',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10L10 30v20l30 20 30-20V30L40 10zm0 5l25 15v15L40 60 15 45V30l25-15z" fill="#2196F3"/></svg>'
+            },
+            {
+                name: 'Gold',
+                price: '$3.99',
+                description: 'Exclusive nametag with golden features',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10L10 30v20l30 20 30-20V30L40 10zm0 5l25 15v15L40 60 15 45V30l25-15z" fill="#FFD700"/></svg>'
+            },
+            {
+                name: 'Amethyst',
+                price: '$4.99',
+                description: 'Rare nametag with crystal effects',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10L10 30v20l30 20 30-20V30L40 10zm0 5l25 15v15L40 60 15 45V30l25-15z" fill="#9C27B0"/></svg>'
+            },
+            {
+                name: 'Crimson',
+                price: '$9.99',
+                description: 'Unique nametag with crimson glow',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10L10 30v20l30 20 30-20V30L40 10zm0 5l25 15v15L40 60 15 45V30l25-15z" fill="#D32F2F"/></svg>'
+            }
+        ],
+        effects: [
+            {
+                name: 'Basic Effects',
+                price: '$1.99',
+                description: 'Simple visual effects package',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10l-5 20-20 5 20 5 5 20 5-20 20-5-20-5z" fill="#E91E63"/></svg>'
+            },
+            {
+                name: 'Advanced Effects',
+                price: '$3.99',
+                description: 'Enhanced visual effects package',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10l-5 20-20 5 20 5 5 20 5-20 20-5-20-5z" fill="#4CAF50"/></svg>'
+            },
+            {
+                name: 'Premium Effects',
+                price: '$5.99',
+                description: 'Premium visual effects package',
+                image: '<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><path d="M40 10l-5 20-20 5 20 5 5 20 5-20 20-5-20-5z" fill="#FFC107"/></svg>'
+            }
+        ]
+    };
+
+    let currentCategory = 'nametag';
+
+    function initShop() {
+        const productsGrid = document.querySelector('.products-grid');
+        if (!productsGrid) return; // Exit if we're not on the shop page
+
+        loadProducts(currentCategory);
+        document.querySelectorAll('.top-category-btn').forEach(btn => {
+            btn.addEventListener('click', () => switchCategory(btn.dataset.category));
+        });
+    }
+
+    function switchCategory(category) {
+        currentCategory = category;
+        document.querySelectorAll('.top-category-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.category === category);
+        });
+        loadProducts(category);
+    }
+
+    function loadProducts(category) {
+        const productsGrid = document.querySelector('.products-grid');
+        if (!productsGrid) return; // Exit if element doesn't exist
+
+        productsGrid.innerHTML = '';
+        shopData[category].forEach(product => {
+            productsGrid.appendChild(createProductCard(product));
+        });
+    }
+
+    function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <div class="product-image">${product.image}</div>
+            <h3 class="product-name">${product.name}</h3>
+            <div class="product-price">${product.price}</div>
+            <p class="product-description">${product.description}</p>
+            <button class="buy-button" onclick="buyProduct('${product.name}')">Buy Now</button>
+        `;
+        return card;
+    }
+
+    function buyProduct(productName) {
+        const product = [...shopData.nametag, ...shopData.effects].find(p => p.name === productName);
+        if (!product) return;
+
+        const modalOverlay = document.createElement('div');
+        modalOverlay.className = 'modal-overlay';
+        modalOverlay.innerHTML = `
+            <div class="purchase-modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Purchase Confirmation</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-content">
+                    <div class="product-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Item</span>
+                            <span class="detail-value">${product.name}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Price</span>
+                            <span class="detail-value">${product.price}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Type</span>
+                            <span class="detail-value">${currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1)}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Description</span>
+                            <span class="detail-value">${product.description}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-button cancel-purchase">Cancel</button>
+                    <button class="modal-button confirm-purchase">Confirm Purchase</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modalOverlay);
+        setTimeout(() => modalOverlay.classList.add('active'), 50);
+
+        const closeModal = () => {
+            modalOverlay.classList.remove('active');
+            setTimeout(() => modalOverlay.remove(), 300);
+        };
+
+        modalOverlay.querySelector('.close-modal').addEventListener('click', closeModal);
+        modalOverlay.querySelector('.cancel-purchase').addEventListener('click', closeModal);
+        modalOverlay.querySelector('.confirm-purchase').addEventListener('click', () => {
+            closeModal();
+            showNotification(`Successfully purchased ${product.name}!`);
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+    }
+
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(30, 30, 30, 0.9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
+    // Initialize shop functionality
     initShop();
-    addSmoothScrolling();
-    addProductCardEffects();
-    handleUrlHash();
-    
-    // Add some sample notifications for demo
-    setTimeout(() => {
-        showNotification('Welcome to the McHvH Shop!', 'info');
-    }, 1000);
+
+    // Make buyProduct function globally available
+    window.buyProduct = buyProduct;
 });
+
