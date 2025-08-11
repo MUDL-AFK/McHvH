@@ -199,4 +199,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Make buyProduct function globally available
     window.buyProduct = buyProduct;
 });
-
