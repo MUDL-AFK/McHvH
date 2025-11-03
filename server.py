@@ -7,6 +7,12 @@ class NoCacheHandler(SimpleHTTPRequestHandler):
         # Redirect root URL to index.html
         if self.path == '/' or self.path.startswith('/?'):
             self.path = '/index.html'
+
+        # Clean URL mappings for local dev
+        if self.path == '/main' or self.path.startswith('/main?'):
+            self.path = '/index.html'
+        if self.path == '/changelog' or self.path.startswith('/changelog?'):
+            self.path = '/changelog.html'
         return SimpleHTTPRequestHandler.do_GET(self)
 
     def send_response(self, code, message=None):
