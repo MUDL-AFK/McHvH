@@ -6,28 +6,88 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>McHvH.net - Changelog</title>
+    <title>McHvH.net</title>
+    <link rel="icon" type="image/webp" href="https://media.discordapp.net/attachments/1366573101869170779/1403512296231272550/McHvH_nobackgroundpng.png?ex=6909332f&is=6907e1af&hm=97217bf3400ecd6e0af9f670e31fc38ccccaf4a7cb0eaa7757211a83bceab5e0&=&format=webp&quality=lossless&width=880&height=880">
     <link rel="stylesheet" href="style.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <img src="https://media.discordapp.net/attachments/1366573101869170779/1403512296231272550/McHvH_nobackgroundpng.png?ex=689b1def&is=6899cc6f&hm=43af30d7b5b4961d7cb953e47468ad63bf07a06f1c44702be47e2b6d77da3d0d&=&format=webp&quality=lossless&width=848&height=848" alt="McHvH Logo" class="nav-logo">
+<body class="home-page">
+    
 
-    <nav class="topnav">
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="shop.html"><i class="fas fa-shopping-cart"></i>Shop</a></li>
-            <li class="active"><a href="changelog.html"><i class="fas fa-history"></i>Change Log</a></li>
-        </ul>
-    </nav>
+    <header class="brand-header">
+        <h1 class="site-title" title="Click to copy server IP">McHvH.net</h1>
+        <nav class="topnav nav-pills">
+            <ul>
+                <li><a href="index.html">Main</a></li>
+                <li class="active"><a href="changelog.html">Changelog</a></li>
+                <li><a href="#">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="coming-soon-container">
-        <h1 class="coming-soon-text">Coming Soon</h1>
-    </div>
+    <main class="panel-grid">
+        <section class="panel contact">
+            <h3>Contact</h3>
+            <ul class="contact-list">
+                <li>
+                    <span class="stat-label">Server IP</span>
+                    <span class="stat-value">mchvh.net</span>
+                </li>
+                <li>
+                    <span class="stat-label">Discord</span>
+                    <a class="button" href="https://discord.gg/vjYAWGNW8q" target="_blank" rel="noopener">Join Discord</a>
+                </li>
+            </ul>
+            <p class="muted">More contact options coming soon.</p>
+        </section>
 
-    <footer class="footer">
-        © 2025 McHvH.net. All rights reserved.
-    </footer>
+        <section class="panel">
+            <h3>Changelog</h3>
+            <article class="changelog-snippet">
+                <h4>8/15/2025</h4>
+                <div class="changelog-lines">
+                    <p>+ added kit shortcuts [/k1, /k2, /k3, ...]</p>
+                    <p>+ fixed grim server breaking blocks in spawn region (due to paper issues downgraded to 1.21.1 srv)</p>
+                    <p>+ capped autocrystal to 10cps on ncp server</p>
+                    <p>+ added clumps to xp and fastxp pickup</p>
+                    <p>+ enchanting bottles drop 2x xp</p>
+                </div>
+            </article>
+            <article class="changelog-snippet">
+                <h4>8/14/2025</h4>
+                <div class="changelog-lines">
+                    <p>- removed some checks from ncp to make hvh not shit</p>
+                    <p>+ added crystal explosions to combatlogx</p>
+                    <p>- blocked /server cmd in pvp pit</p>
+                    <p>* and more idk what else bruh i do this shit automatically</p>
+                </div>
+            </article>
+            <article class="changelog-snippet">
+                <h4>8/14/2025</h4>
+                <div class="changelog-lines">
+                    <p>+ added sql to luckperms</p>
+                    <p>+ added fastxp pickup</p>
+                    <p>+ added arena clear</p>
+                    <p>+ added auth for premium/crack</p>
+                    <p>+ made ncp & grim servers</p>
+                    <p>+ added combatlog</p>
+                    <p>+ eu server is ready u can join thru /server grim</p>
+                </div>
+            </article>
+        </section>
+
+        <aside class="panel server-status-panel">
+            <h3>Server Status</h3>
+            <div class="server-stats">
+                <div><span class="stat-label">Players</span><span class="stat-value">--</span></div>
+                <div><span class="stat-label">Version</span><span class="stat-value">--</span></div>
+                <div><span class="stat-label">TPS</span><span class="stat-value">--</span></div>
+            </div>
+            <p class="muted">Live status via API coming soon.</p>
+        </aside>
+    </main>
+
+    <footer class="footer">© 2025 McHvH.net. All rights reserved.</footer>
 
     <script src="script.js?v=1"></script>
 </body>
