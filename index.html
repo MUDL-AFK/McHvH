@@ -6,30 +6,63 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>McHvH.net - The Ultimate KitPvP Server</title>
+    <title>McHvH.net</title>
+    <link rel="icon" type="image/webp" href="https://media.discordapp.net/attachments/1366573101869170779/1403512296231272550/McHvH_nobackgroundpng.png?ex=6909332f&is=6907e1af&hm=97217bf3400ecd6e0af9f670e31fc38ccccaf4a7cb0eaa7757211a83bceab5e0&=&format=webp&quality=lossless&width=880&height=880">
     <link rel="stylesheet" href="style.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="home-page">
-    <img src="https://media.discordapp.net/attachments/1366573101869170779/1403512296231272550/McHvH_nobackgroundpng.png?ex=689b1def&is=6899cc6f&hm=43af30d7b5b4961d7cb953e47468ad63bf07a06f1c44702be47e2b6d77da3d0d&=&format=webp&quality=lossless&width=848&height=848" alt="McHvH Logo" class="nav-logo">
+    
 
-    <nav class="topnav">
-        <ul>
-            <li class="active"><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="shop.html"><i class="fas fa-shopping-cart"></i>Shop</a></li>
-            <li><a href="changelog.html"><i class="fas fa-history"></i>Change Log</a></li>
-        </ul>
-    </nav>
+    <!-- Brand title -->
+    <header class="brand-header">
+        <h1 class="site-title" title="Click to copy server IP">McHvH.net</h1>
+        <nav class="topnav nav-pills">
+            <ul>
+                <li class="active"><a href="index.html">Main</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+                <li><a href="#">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="hero-content">
-        <h1 class="site-title">McHvH.net</h1>
-        <h2 class="site-subtitle">The Ultimate KitPvP Server</h2>
-        <p class="site-description">Battle like a pro and conquer the competition in intense combat. Join our dedicated community today and put your skills to the test!</p>
-        <div class="server-status">
-            <div class="status-indicator"></div>
-            <span class="status-text">Server Status: Online</span>
-        </div>
-    </div>
+    <!-- Three panel layout -->
+    <main class="panel-grid">
+        <!-- Donations -->
+        <section class="panel contact">
+            <h3>Contact</h3>
+            <ul class="contact-list">
+                <li>
+                    <span class="stat-label">Server IP</span>
+                    <span class="stat-value">mchvh.net</span>
+                </li>
+                <li>
+                    <span class="stat-label">Discord</span>
+                    <a class="button" href="https://discord.gg/vjYAWGNW8q" target="_blank" rel="noopener">Join Discord</a>
+                </li>
+            </ul>
+            <p class="muted">More contact options coming soon.</p>
+        </section>
+
+        <!-- Center info -->
+        <section class="panel center-info">
+            <h3 class="ip-title">mchvh.net</h3>
+            <p><strong>McHvH – The Ultimate GRIM and NCP PvP Practice for Anarchy Players</strong></p>
+            <p>Sharpen your skills, crush your rivals, and dominate in pure chaos.</p>
+            <p>With powerful commands like <code>/kit</code> and <code>/duel</code>, you’ll be fighting on the newest Minecraft version—no limits, no rules, just raw PvP.</p>
+        </section>
+
+        <!-- Right status panel -->
+        <aside class="panel server-status-panel">
+            <h3>Server Status</h3>
+            <div class="server-stats">
+                <div><span class="stat-label">Players</span><span class="stat-value">--</span></div>
+                <div><span class="stat-label">Version</span><span class="stat-value">--</span></div>
+                <div><span class="stat-label">TPS</span><span class="stat-value">--</span></div>
+            </div>
+            <p class="muted">Live status via API coming soon.</p>
+        </aside>
+    </main>
 
     <footer class="footer">
         © 2025 McHvH.net. All rights reserved.
@@ -38,3 +71,4 @@
     <script src="script.js?v=1"></script>
 </body>
 </html>
+
