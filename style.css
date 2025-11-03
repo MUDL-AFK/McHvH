@@ -278,6 +278,14 @@ body {
 .changelog-lines { margin: 8px 0 12px; }
 .changelog-lines p { margin: 4px 0; color: #cfcfcf; }
 
+/* Make the central changelog panel scrollable without affecting side panels */
+.changelog-panel {
+    max-height: 60vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
 .server-status-panel .server-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 14px; }
 .server-status-panel .muted { color: #9aa0a6; font-size: 0.95em; }
 
