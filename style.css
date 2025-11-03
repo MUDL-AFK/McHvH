@@ -21,7 +21,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://media.discordapp.net/attachments/1366573101869170779/1404536833442058310/image.png?ex=689b8c5c&is=689a3adc&hm=0050efc95487b3bb654047db89e8e06ff4a6e99b4c35ca1b3b1e254976d728d1&=&format=webp&quality=lossless&width=1322&height=744');
+    background: url('https://media.discordapp.net/attachments/1366573101869170779/1404536833442058310/image.png?ex=6908f8dc&is=6907a75c&hm=d19f79f8e10a71dc51c3c5b3172a9eceb5d2d5a064eb837a7f806e89d8ec4dc1&=&format=webp&quality=lossless&width=1379&height=776');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -66,8 +66,8 @@ body {
     background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-    cursor: pointer;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.12);
+    cursor: default;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -77,40 +77,7 @@ body {
     text-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
 }
 
-.site-title::after {
-    content: 'Click to copy server IP';
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%) scale(0.9);
-    background: rgba(0, 0, 0, 0.95);
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: 700;
-    opacity: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    z-index: 1000;
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-.site-title:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-    bottom: -45px;
-}
-
-.site-title.copied::after {
-    content: 'IP copied to clipboard!';
-    background: rgba(75, 127, 255, 0.98);
-    box-shadow: 0 4px 20px rgba(75, 127, 255, 0.7);
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
-}
+/* Removed IP copy tooltip and animation */
 
 .site-subtitle {
     font-size: 1.8em;
@@ -174,36 +141,40 @@ body {
 }
 
 .topnav {
-    width: 100%;
-    background: rgba(17, 17, 17, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 16px 0 10px 0;
-    display: flex;
+    background: rgba(20, 20, 20, 0.75);
+    backdrop-filter: blur(12px);
+    padding: 8px 16px;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 0;
+    top: 180px; /* moved down to reveal title */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 100;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
 .topnav ul {
     list-style: none;
     display: flex;
-    gap: 36px;
+    gap: 18px;
     margin: 0;
-    padding: 0;
+    padding: 0 8px;
 }
 
 .topnav li {
     color: #fff;
-    font-size: 1em;
+    font-size: 0.95em;
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-weight: 400;
-    transition: color 0.2s, border-bottom 0.2s;
-    border-bottom: 2px solid transparent;
-    padding-bottom: 2px;
+    font-weight: 500;
+    transition: color 0.2s, background 0.2s;
+    border-bottom: none;
+    padding: 6px 12px;
+    border-radius: 999px;
 }
 
 .topnav li i {
@@ -215,7 +186,7 @@ body {
 .topnav li.active, .topnav li:hover {
     color: #fff;
     font-weight: 600;
-    border-bottom: 2px solid #fff;
+    background: rgba(255,255,255,0.08);
 }
 
 .topnav a, .topnav a:visited, .topnav a:active {
@@ -228,6 +199,93 @@ body {
 .topnav a:hover {
     color: #fff;
     text-decoration: none;
+}
+
+/* New simplified layout */
+.brand-header {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.site-title {
+    letter-spacing: 8px;
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr 320px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 260px auto 40px; /* push content below the lowered nav */
+    padding: 0 20px;
+    align-items: start; /* prevent side panels from stretching to tallest card */
+}
+
+.panel {
+    background: rgba(22, 22, 22, 0.75);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 18px;
+    color: #eaeaea;
+    backdrop-filter: blur(12px);
+}
+
+/* Limit the changelog center card height to match smaller cards */
+/* reverted: use default panel sizing */
+
+.panel h3, .panel h4 {
+    margin: 0 0 8px 0;
+    color: #fff;
+}
+
+.donations .button.primary {
+    display: inline-block;
+    margin-top: 10px;
+    background: #4b7fff;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+}
+
+/* Contact panel styles */
+.contact-list { list-style: none; margin: 8px 0; padding: 0; }
+.contact-list li { display: flex; justify-content: space-between; align-items: center; margin: 6px 0; }
+.contact .button { background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 8px; color: #fff; }
+
+.ip-title {
+    font-size: 1.2rem;
+    color: #9cc0ff;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 6px 0 12px;
+}
+.stats .stat-label { color: #9aa0a6; font-size: 0.9em; }
+.stats .stat-value { color: #fff; font-weight: 600; }
+
+.link-block { margin: 14px 0; }
+.link-block .button { background: rgba(255,255,255,0.08); padding: 8px 12px; border-radius: 8px; color: #fff; display: inline-block; }
+
+.changelog-snippet ul { margin: 8px 0 12px; padding-left: 20px; }
+.changelog-snippet li { margin: 4px 0; color: #cfcfcf; }
+
+/* Plain text layout for changelog entries (no bullets) */
+.changelog-lines { margin: 8px 0 12px; }
+.changelog-lines p { margin: 4px 0; color: #cfcfcf; }
+
+.server-status-panel .server-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 14px; }
+.server-status-panel .muted { color: #9aa0a6; font-size: 0.95em; }
+
+.status-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.status-dot.online { background: #33ff33; box-shadow: 0 0 10px rgba(51, 255, 51, 0.5); }
+
+@media (max-width: 980px) {
+    .panel-grid { grid-template-columns: 1fr; margin-top: 280px; }
 }
 
 /* Shop Styles */
