@@ -1,19 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize clipboard functionality for site title
-    const siteTitle = document.querySelector('.site-title');
-    if (siteTitle) {
-        siteTitle.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText('mchvh.net');
-                siteTitle.classList.remove('copied'); // Remove first to ensure animation triggers
-                void siteTitle.offsetWidth; // Force reflow
-                siteTitle.classList.add('copied');
-                setTimeout(() => siteTitle.classList.remove('copied'), 2000);
-            } catch (err) {
-                console.error('Failed to copy:', err);
-            }
-        });
-    }
+    // Removed IP copy functionality on the title
 
     const shopData = {
         nametag: [
